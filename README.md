@@ -1,2 +1,2 @@
 # blogfire
-A Blogging Website(developed using Python Django Framework) 
+A Blogging Website(developed using Python Django Framework & Postgresql) 
