@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load staticfiles %}
+
+<!-- Page Content -->
+
+<div class="container">
+  <div class="row">
+  
+    <div class="col-md-8">
+	
+    <!-- Jumbotron Header -->
+    
+    <header class="jumbotron my-4">
+    
+        <h1 class="display-3">Hello! {{user.username}}...</h1>
+        <p class="lead">You are allowed to change your changeable blogger details... </p>
+		<style>
+		  .editcontainer input[type=text]{
+    		width: 100%; /* Full width */
+    		padding: 12px; /* Some padding */  
+    		border: 1px solid #ccc; /* Gray border */
+    		border-radius: 4px; /* Rounded borders */
+    		box-sizing: border-box; /* Make sure that padding and width stays in place */
+    		margin-top: 3px; /* Add a top margin */
+    		margin-bottom: 3px; /* Bottom margin */
+    		resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+		  }
+
+		  /* Style the submit button with a specific background color etc */
+     	 .editcontainer input[type=submit] {
+    	    background-color: red;
+    		color: white;
+    		padding: 12px 20px;
+    		border: none;
+    		border-radius: 4px;
+    		cursor: pointer;
+		  }
+
+  		  /* When moving the mouse over the submit button, add a darker green color */
+          .editcontainer input[type=submit]:hover {
+            background-color: darkred;
+          }
+
+		  /* Add a background color and some padding around the form */
+		  .editcontainer {
+		  	margin: 25px 0px;
+            border-radius: 5px;
+    		background-color: #f2f2f2;
+    		padding: 20px;
+		  }
+		</style>
+			
+        <div class="editcontainer" >
+        	<h2 style="border-radius:5px;background:black;color:white;padding:10px;text-align:center">
+        	Changeable Blogger's Details: </h2>
+        	
+ 				<form method="post" id="new">
+ 					{% csrf_token %}
+    				{% for field in form %}
+    				<br>
+					<p>
+						<b>{{ field.label_tag }}</b>
+        				{{ field }}
+        				{% for error in field.errors %}
+          					<p style="color: #d8260a">{{ error }}....</p>
+        				{% endfor %}
+      				</p>
+    				{% endfor %}
+    				<p>Sorry! we cann't allow to change your password without proper authentication 
+    				and permission </p>
+    				<input type="submit" value="Submit" style="width:100%">
+
+  				</form>
+  		</div>
+        
+	</header>
+	</div>
+		
+	<div class="col-md-4">
+
+    	<!-- Detail Widget -->
+           
+          <div class="card my-4" style="height:600px">
+          <h5 class="card-header">Blogger's Details</h5>
+			<form enctype="multipart/form-data" id="uploadimageform">
+				{% csrf_token %}
+        		<input type="file" name="file" id="upload" accept="image/pna,image/jpeg,image/jpg"/>
+        		<button type="submit" id="uploadconfig">upload</button>
+        	
+        	</form>
+        
+        
+        	<table style="width:100%; border:1px solid #000; margin-bottom:15px">
+		  	<tr style="border-top:1px solid #000">
+				<th style="width:50%"> User Name: </th>
+				<td style="width:50%"> {{user.username}}</td>
+		  	</tr>
+		  	<tr style="border-top:1px solid #000">
+				<th style="width:50%"> Name: </th>
+				<td style="width:50%"> {{user.first_name}} {{user.last_name}} </td>
+		 	</tr>
+		  	<tr style="border-top:1px solid #000">
+				<th style="width:50%"> Mobile Number: </th>
+				<td style="width:50%"> {{user.bloggerprofile.mobile_no}} </td>
+		 	</tr>
+		 	<tr style="border-top:1px solid #000">
+				<th style="width:50%"> Email ID: </th>
+				<td style="width:50%"> {{user.bloggerprofile.email_id}} </td>
+		 	</tr>
+		 	<tr style="border-top:1px solid #000">
+				<th style="width:50%"> Date of Birth: </th>
+				<td style="width:50%"> {{user.bloggerprofile.birth_date}} </td>
+		 	</tr>
+		 	<tr  style="border-top:1px solid #000">
+				<th style="width:50%"> Home Town: </th>
+				<td style="width:50%"> {{user.bloggerprofile.home_town}} </td>
+		 	</tr>
+		 	<tr  style="border-top:1px solid #000">
+				<th style="width:50%"> Hobbies: </th>
+				<td style="width:50%"> {{user.bloggerprofile.hobbies}} </td>
+		 	</tr>
+		 	<tr  style="border-top:1px solid #000">
+				<th style="width:50%"> bio: </th>
+				<td style="width:50%"> {{user.bloggerprofile.bio}} </td>
+		 	</tr>
+        	</table>
+        
+			<a href="{% url 'blogger' %}" class="btn btn-primary btn-lg" 
+				style="width:95.5%; background:#bc0505; margin-left:7px"> Back to Profile </a>
+  		  </div>
+  	</div>
+  	
+  </div>
+</div>
+<!-- /.container -->
+ 
+
+{% endblock %} 
+
+
+
+{% block script %}
+
+<script>
+        $(document).ready(function(e){
+        	
+        	$('#uploadimageform').on("submit",function(event){     
+                event.preventDefault();
+    			var formData = new FormData(this);
+    			console.log(formData);
+    			$.ajax({
+                        type:'POST',
+                        url: '/bloggerpicsave/',
+                        data:formData,
+                        processData: false,
+                        contentType: false,
+                        success: function(response){
+                        	alert("success");                                        
+                        },
+                        error:function(request,status,error) {
+                            alert("error");
+                        },
+                        headers:{"X-CSRFToken": $('input[name="csrfmiddlewaretoken"]').attr('value')},
+                       });
+               });
+        });    
+        
+</script>
+
+{% endblock %}

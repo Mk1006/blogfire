@@ -1,0 +1,50 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="BloggerSite">
+    <meta name="author" content="Mainak_Kundu">
+    
+	<link rel="icon" href='{% static "favicon.png"  %}' sizes="32x32" type="image/png">
+    <title>Log in</title>
+    <link href='{% static "authentication/css/styleLogin.css" %}' rel="stylesheet">
+
+  </head>
+
+  <body>
+  		<form method="post" id="logincontainer">
+  			<h1><img src='{% static "authentication/images/logo.png" %}'></h1>
+  				<div class="inset" style="font-size:15px;">
+  				{% if form.errors %}
+    				<p style="color: #d8260a">Your BrandStore's username and password didn't match. Please try again.....</p>
+  				{% endif %}<br>
+				{% csrf_token %}
+    			<input type="hidden" name="next" value="{{ next }}" />
+    			{% for field in form %}
+      				<p>
+        			{{ field.label_tag }}
+        			{{ field }}
+        			{% for error in field.errors %}
+          				<p style="color: #d8260a">{{ error }}</p>
+        			{% endfor %}
+        
+      				</p>
+    			{% endfor %}
+  
+  				<p>
+    				<input type="checkbox" name="remember" id="remember">
+    				<label for="remember">Remember me for 14 days</label>
+  				</p>
+  				</div>
+  				<p class="p-container">
+    				<span style="color:red">Forgot password ?</span>
+    				<input type="submit" value="Log in" style="background:red">
+  				</p>
+		</form>
+  </body>
+</html>

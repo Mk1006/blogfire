@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load staticfiles %}
+
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+        
+          <!-- Post -->
+          <style>
+		  .postcontainer input[type=text]{
+    		width: 100%; /* Full width */
+    		padding: 12px; /* Some padding */  
+    		border: 1px solid #ccc; /* Gray border */
+    		border-radius: 4px; /* Rounded borders */
+    		box-sizing: border-box; /* Make sure that padding and width stays in place */
+    		margin-top: 6px; /* Add a top margin */
+    		margin-bottom: 16px; /* Bottom margin */
+    		resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+		  }
+
+		  /* Style the submit button with a specific background color etc */
+     	 .postcontainer input[type=submit] {
+    	    background-color: red;
+    		color: white;
+    		padding: 12px 20px;
+    		border: none;
+    		border-radius: 4px;
+    		cursor: pointer;
+		  }
+
+  		  /* When moving the mouse over the submit button, add a darker green color */
+          .postcontainer input[type=submit]:hover {
+            background-color: darkred;
+          }
+
+		  /* Add a background color and some padding around the form */
+		  .postcontainer {
+		  	margin: 25px 0px;
+            border-radius: 5px;
+    		background-color: #f2f2f2;
+    		padding: 20px;
+		  }
+		  </style>
+          <div class="postcontainer" >
+ 				<form>
+
+    			<label>POST:</label>
+    			<input type="text" placeholder="Write something.." style="height:200px">
+				<label>IMAGE:</label><input type="file" name="pic" style="padding-left:10px">
+    			<input type="submit" value="Submit">
+
+  				</form>
+		  </div>
+
+          <!-- Blog Post -->
+          <div class="card mb-4">
+            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+            <div class="card-body">
+              <h2 class="card-title">Post Title</h2>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+              <a href="#" class="btn btn-primary">Read More &rarr;</a>
+            </div>
+            <div class="card-footer text-muted">
+              Posted on January 1, 2017 by
+              <a href="#">Start Bootstrap</a>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <ul class="pagination justify-content-center mb-4">
+            <li class="page-item">
+              <a class="page-link" href="#">&larr; Older</a>
+            </li>
+            <li class="page-item disabled">
+              <a class="page-link" href="#">Newer &rarr;</a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+          <!-- Search Widget -->
+          <div class="card my-4" style="height: 150px">
+            <h5 class="card-header">Instant Post</h5>
+            <div class="card-body">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Write here...">
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="submit">Post!</button>
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Side Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Side Widget</h5>
+            <div class="card-body">
+              You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+    
+
+{% endblock %} 

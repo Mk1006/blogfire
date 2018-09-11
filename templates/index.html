@@ -1,0 +1,261 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="BloggerSite">
+    <meta name="author" content="Mainak_Kundu">
+    
+    <link rel="icon" href='{% static "favicon.png"  %}' sizes="32x32" type="image/png">
+
+    <title>{{title}}</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href='{% static "index/vendor/bootstrap/css/bootstrap.min.css" %}' rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href='{% static "index/vendor/font-awesome/css/font-awesome.min.css" %}' rel="stylesheet" type="text/css">
+    <link href='{% static "index/vendor/simple-line-icons/css/simple-line-icons.css" %}' rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href='{% static "index/css/stylish-portfolio.css" %}' rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+    <!-- Navigation -->
+    <a class="menu-toggle rounded" href="#">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+          <a class="js-scroll-trigger" href="#page-top">Blog FIRE</a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="#page-top">Home</a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="#about">About Us</a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="#feature">Features</a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="#partner">Social Media Partners</a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="masthead d-flex">
+      <div class="container text-center my-auto">
+        <img src='{% static "index/img/logo.png" %}'>
+        <h3 class="mb-5" style="color:#fff">
+          <em>Connecting ideas and people...</em>
+        </h3>
+		<a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">
+		<i class="icon-fire" style="color:white"></i> About Us</a>
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href="{% url 'register' %}">
+		<i class="icon-bulb" style="color:white"></i>Register Now</a>
+		<a class="btn btn-primary btn-xl js-scroll-trigger" href="{% url 'login' %}">
+		<i class="icon-lock-open" style="color:white"></i> Log In</a>
+      </div>
+      <div class="overlay"></div>
+    </header>
+
+    <!-- About -->
+    <section class="content-section bg-light" id="about">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h2>Blog<i>FIRE</i> is the perfect platform for connecting with people</h2>
+            <p class="lead mb-5">This platform features a flexible, UX friendly user interface to its active members for
+            Connecting ideas and people </p>
+            <a class="btn btn-dark btn-xl js-scroll-trigger" href="#feature">What We Offer</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features-->
+    <section class="content-section bg-primary text-white text-center" id="feature">
+      <div class="container">
+        <div class="content-section-heading">
+          <h3 class="text-secondary mb-0"  style="color:#fff">Features</h3>
+          <h2 class="mb-5">What Blog<i>FIRE</i> Offer</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+            <span class="service-icon rounded-circle mx-auto mb-3">
+              <i class="icon-docs" style="color:red"></i>
+            </span>
+            <h4>
+              <strong>Integration</strong>
+            </h4>
+            <p class="text-faded mb-0">Content on the web is meant to be shared Socially!</p>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+            <span class="service-icon rounded-circle mx-auto mb-3">
+              <i class="icon-pencil" style="color:red"></i>
+            </span>
+            <h4>
+              <strong>Redesigned</strong>
+            </h4>
+            <p class="text-faded mb-0">Freshly redesigned for evey bloggers.</p>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+            <span class="service-icon rounded-circle mx-auto mb-3">
+              <i class="icon-heart" style="color:red"></i>
+            </span>
+            <h4>
+              <strong>Favorited</strong>
+            </h4>
+            <p class="text-faded mb-0">Millions of Bloggers.
+              <i class="fa fa-heart" style="color:red"></i>
+              Blog<i>FIRE</i>!</p>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <span class="service-icon rounded-circle mx-auto mb-3">
+              <i class="icon-fire" style="color:red"></i>
+            </span>
+            <h4>
+              <strong>Harmless</strong>
+            </h4>
+            <p class="text-faded mb-0">Blogs are useful for our socity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Callout -->
+    <section class="callout">
+      <div class="container text-center">
+        <h2 class="mx-auto mb-5" style="color:#fff">Welcome to
+          <em>your</em>
+          next Blogger Site!</h2>
+        <a class="btn btn-primary btn-xl" href="#page-top">Create Blog<i>FIRE</i> Account Now!</a>
+      </div>
+    </section>
+
+    <!-- Partner-->
+    <section class="content-section" id="partner">
+      <div class="container">
+        <div class="content-section-heading text-center">
+          <h3 class="text-secondary mb-0">Social Media Partner</h3>
+          <h2 class="mb-5">Recent Collaborations of Blog<i>FIRE</i></i></h2>
+        </div>
+        <div class="row no-gutters">
+          <div class="col-lg-6">
+            <a class="portfolio-item" href="#">
+              <span class="caption">
+                <span class="caption-content">
+                  <h2>FACEBOOK</h2>
+                  <p class="mb-0">Facebook has more than 2.2 billion monthly active users as of January 2018. 
+				  Its popularity has led to prominent media coverage for the company!</p>
+                </span>
+              </span>
+              <img class="img-fluid" src='{% static "index/img/portfolio-1.jpg" %}' alt="FACEBOOK">
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <a class="portfolio-item" href="#">
+              <span class="caption">
+                <span class="caption-content">
+                  <h2>TWITTER</h2>
+                  <p class="mb-0">Twitter is an online news and social networking service on 
+				  which users post and interact with messages known as "tweets"!</p>
+                </span>
+              </span>
+              <img class="img-fluid" src='{% static "index/img/portfolio-2.jpg" %}' alt="TWITTER">
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <a class="portfolio-item" href="#">
+              <span class="caption">
+                <span class="caption-content">
+                  <h2>INSTAGRAM</h2>
+                  <p class="mb-0">Instagram is a photo and video-sharing social networking service owned by Facebook, Inc.!</p>
+                </span>
+              </span>
+              <img class="img-fluid" src='{% static "index/img/portfolio-3.jpg" %}' alt="INSTAGRAM">
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <a class="portfolio-item" href="#">
+              <span class="caption">
+                <span class="caption-content">
+                  <h2>WHATSAPP</h2>
+                  <p class="mb-0">WhatsApp Messenger is a freeware and cross-platform messaging 
+				  and Voice over IP (VoIP) service owned by Facebook</p>
+                </span>
+              </span>
+              <img class="img-fluid" src='{% static "index/img/portfolio-4.jpg" %}' alt="WHATSAPP">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="content-section bg-primary text-white">
+      <div class="container text-center">
+        <h2 class="mb-4">The Blogs &amp; Blogger fretures of Blog<i>FIRE</i>
+		above are impossible to resist...</h2>
+        <a href="#" class="btn btn-xl btn-light mr-4">Register Now!</a>
+        <a href="#" class="btn btn-xl btn-dark" style="background:#000">Log In</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+	
+    <footer class="footer text-center">
+	<section  id="contact">
+      <div class="container">
+        <ul class="list-inline mb-5">
+          <li class="list-inline-item">
+            <a class="social-link rounded-circle text-white mr-3" href="#">
+              <i class="icon-social-facebook"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="social-link rounded-circle text-white mr-3" href="#">
+              <i class="icon-social-twitter"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="social-link rounded-circle text-white" href="#">
+              <i class="icon-social-github"></i>
+            </a>
+          </li>
+        </ul>
+        <p class="text-muted small mb-0">Copyright &copy; mkProduct.Pvt.Lmt 2017</p>
+      </div>
+	  </section>
+    </footer>
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src='{% static "index/vendor/jquery/jquery.min.js" %}'></script>
+    <script src='{% static "index/vendor/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
+
+    <!-- Plugin JavaScript -->
+    <script src='{% static "index/vendor/jquery-easing/jquery.easing.min.js" %}'></script>
+
+    <!-- Custom scripts for this template -->
+    <script src='{% static "index/js/stylish-portfolio.min.js" %}'></script>
+
+  </body>
+
+</html>

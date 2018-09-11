@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load staticfiles %}
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Jumbotron Header -->
+      <header class="jumbotron my-4">
+        <h1 class="display-3">Welcome! {{user.username}}...</h1>
+        <p class="lead">Your blog is a celebration of the unexpected, settled, 
+        happy life and social service. Thank you to create a blogger account in blogfire!... </p>
+        <img src='media/{% static "{{ima_obj}}" %}'>
+        <h1>{{img_obj}}</h1>
+        <table style="width:60%; margin-left: 50px">
+		  	<tr>
+				<th  colspan="2"><h1><b>Blogger's Details</b></h1></td>
+		  	</tr>
+		  	<tr>
+				<th> User Name: </th>
+				<td> {{user.username}}</td>
+		  	</tr>
+		  	<tr>
+				<th> Name: </th>
+				<td> {{user.first_name}} {{user.last_name}} </td>
+		 	 </tr>
+		  	<tr>
+				<th> Mobile Number: </th>
+				<td> {{user.bloggerprofile.mobile_no}} </td>
+		 	 </tr>
+		 	 <tr>
+				<th> Email ID: </th>
+				<td> {{user.bloggerprofile.email_id}} </td>
+		 	 </tr>
+		 	 <tr>
+				<th> Date of Birth: </th>
+				<td> {{user.bloggerprofile.birth_date}} </td>
+		 	 </tr>
+		 	 <tr>
+				<th> Home Town: </th>
+				<td> {{user.bloggerprofile.home_town}} </td>
+		 	 </tr>
+		 	 <tr>
+				<th> Hobbies: </th>
+				<td> {{user.bloggerprofile.hobbies}} </td>
+		 	 </tr>
+		 	 
+		 	 <tr>
+				<th> bio: </th>
+				<td> {{user.bloggerprofile.bio}} </td>
+		 	 </tr>
+        </table>
+		<br>
+		<a href="{% url 'edit_bloggerprofile' %}" class="btn btn-primary btn-lg" 
+		style="width:30%; background:#bc0505; margin-right:10px">Update Details!</a>
+		<a href="{% url 'logout' %}" class="btn btn-primary btn-lg" style="width:30%; background:#bc0505">Log Out!</a>
+      </header>
+    </div>
+    <!-- /.container -->
+
+{% endblock %} 

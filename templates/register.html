@@ -1,0 +1,50 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+	
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="BloggerSite">
+    <meta name="author" content="Mainak_Kundu">
+
+	<link rel="icon" href='{% static "favicon.png"  %}' sizes="32x32" type="image/png">
+    <title>Log in</title>
+    <link href='{% static "authentication/css/styleRegister.css" %}' rel="stylesheet">
+
+  </head>
+
+  <body>
+  <form method="post">
+  <h1>Blogger Registration On Blog<i>FIRE</i></h1>
+  <div class="inset" style="font-size:15px">
+  				{% csrf_token %}
+    			{% for field in form %}
+    			<br>
+				<p>
+					<table style="width:95%; padding:0">
+					<tr>
+       				<td style="width:49%; padding:0; text-align:center"><b>{{ field.label_tag }}</b></td>
+        			<td style="width:49%; padding:0">{{ field }}</td>
+        			</tr>
+        			</table>
+        			{% for error in field.errors %}
+          				<p style="color: #d8260a">{{ error }}....</p>
+        			{% endfor %}
+      			</p>
+    			{% endfor %}
+  
+  <p>
+    <label for="remember">By creating an account you agree to BlogFIRE's Terms & Privacy...</label>
+  </p>
+  </div>
+  <p class="p-container">
+    <span style="color:red; font-size:16px">Already have an BlogFIRE account? 
+    <a href="{% url 'login' %}" style="color:#d13c6b">Log in</a>...</span>
+    <input type="submit" value="REGISTER" style="background:red">
+  </p>
+</form>
+</body>
+</html>
